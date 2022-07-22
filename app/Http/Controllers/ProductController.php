@@ -15,6 +15,7 @@ class ProductController extends Controller
     {
         return view('client.productDetail', [
             'product' => $product,
+            'product_images' => $product->images,
         ]);
     }
 }
