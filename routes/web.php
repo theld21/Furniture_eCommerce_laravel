@@ -40,7 +40,11 @@ Route::prefix('')->name('client.')->group(function () {
 
     Route::prefix('product')->name('product.')->group(function () {
         Route::get('', [ProductController::class, 'index'])->name('index');
+<<<<<<< HEAD
         Route::get('d/{product}', [ProductController::class, 'detail'])->name('detail');
+=======
+        Route::get('{product}', [ProductController::class, 'productInfo'])->name('detail');
+>>>>>>> 4f00e30f4959fe55c5be2eb11bac8a06e1292b6a
     });
 
     Route::get('cart', [OrderController::class, 'index'])->name('cart');
