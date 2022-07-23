@@ -132,7 +132,7 @@
                                     </div>
                                 </div>
                                 <div class="add-cart p-absolute transition-3">
-                                    <a href="{{ route('client.order.index')}}">+ Add to Cart</a>
+                                    <a href="{{ route('client.cart')}}">+ Add to Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
                     <div class="product__item">
                         <div class="product__wrapper mb-60">
                             <div class="product__thumb">
-                                <a href="{{ route('client.product.info', ['product'=>$x->id]) }}" class="w-img">
+                                <a href="{{ route('client.product.detail', ['product'=>$x->id]) }}" class="w-img">
                                     <img src="{{$x->feature_image}}" alt="product-img">
                                     <img class="product__thumb-2" src="{{$x->feature_image}}" alt="product-img">
                                 </a>
@@ -220,14 +220,14 @@
                             </div>
                             <div class="product__content p-relative">
                                 <div class="product__content-inner">
-                                    <h4><a href="{{ route('client.product.info', ['product'=>$x->id]) }}">{{$x->name}}</a></h4>
+                                    <h4><a href="{{ route('client.product.detail', ['product'=>$x->id]) }}">{{$x->name}}</a></h4>
                                     <div class="product__price transition-3">
                                         <span>{{$x->price}}</span>
                                         <span class="old-price">{{$x->old_price}}</span>
                                     </div>
                                 </div>
                                 <div class="add-cart p-absolute transition-3">
-                                    <a href="{{ route('client.order.index')}}">+ Add to Cart</a>
+                                    <a href="{{ route('client.cart')}}">+ Add to Cart</a>
                                 </div>
                             </div>
                         </div>

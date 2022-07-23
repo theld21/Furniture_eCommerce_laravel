@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -31,13 +33,20 @@ Route::get('/', function () {
 //     });
 // });
 
-Route::get('', [HomeController::class, 'index'])->name('client.home');
 
-Route::prefix('product')->name('client.product.')->group(function () {
-    Route::get('', [ProductController::class, 'index'])->name('index');
-    Route::get('{product}', [ProductController::class, 'productInfo'])->name('detail');
-});
 
-Route::prefix('order')->name('client.order.')->group(function () {
-    Route::get('', [OrderController::class, 'index'])->name('index');
+Route::prefix('')->name('client.')->group(function () {
+    Route::get('', [HomeController::class, 'index'])->name('home');
+
+    Route::prefix('product')->name('product.')->group(function () {
+        Route::get('', [ProductController::class, 'index'])->name('index');
+        Route::get('{product}', [ProductController::class, 'productInfo'])->name('detail');
+    });
+
+    Route::get('cart', [OrderController::class, 'index'])->name('cart');
+    Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::get('contact', [ContactController::class, 'index'])->name('contact');
+
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::get('signup', [LoginController::class, 'signup'])->name('signup');
 });
