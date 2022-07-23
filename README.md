@@ -4,6 +4,6 @@
 
 Website bán nội thất, đồ dùng theo phong cách tối giản của  <a href="https://www.muji.com/" target="_blank">MUJI</a>
 
-∆ Tác giả: @Theld21
-∆ Ngôn ngữ: PHP
-∆ Framework: Laravel 9
+∆ Tác giả: @Theld21<br>
+∆ Ngôn ngữ: PHP<br>
+∆ Framework: Laravel 9<br>
