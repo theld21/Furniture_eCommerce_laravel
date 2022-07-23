@@ -1,7 +1,7 @@
 @extends('client.layouts.master')
 
 @section('client-content')
-<section class="login-area pt-100 pb-100" >
+<section class="login-area pt-50 pb-100" >
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
