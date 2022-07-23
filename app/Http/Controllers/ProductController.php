@@ -9,12 +9,14 @@ class ProductController extends Controller
 {
     public function index()
     {
+        return view('client.productList');
     }
 
-    public function productInfo(Product $product)
+    public function detail(Product $product)
     {
         return view('client.productDetail', [
             'product' => $product,
+            'product_images' => $product->images,
         ]);
     }
 }

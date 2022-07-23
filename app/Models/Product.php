@@ -17,4 +17,9 @@ class Product extends Model
         'user_id',
         'category_id',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(Product_image::class);
+    }
 }

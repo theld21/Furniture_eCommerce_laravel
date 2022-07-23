@@ -10,52 +10,28 @@
                         <div class="product__modal-nav mr-20">
                             <nav>
                                 <div class="nav nav-tabs" id="product-details" role="tablist">
-                                    <a class="nav-item nav-link active" id="pro-one-tab" data-toggle="tab" href="#pro-one" role="tab" aria-controls="pro-one" aria-selected="true">
-                                    <div class="product__nav-img w-img">
-                                        <img src="assets/img/shop/product/details/details-sm-1.jpg" alt="">
-                                    </div>
+                                    @foreach ($product_images as $i=>$x)
+                                    <a class="nav-item nav-link {{$i==0 ? 'active' : ''}}" id="pro-{{$x->id}}-tab" data-toggle="tab" href="#pro-{{$x->id}}" role="tab" aria-controls="pro-{{$x->id}}" aria-selected="true">
+                                        <div class="product__nav-img w-img">
+                                            <img src="{{$x->image}}" style="width:100px" alt="">
+                                        </div>
                                     </a>
-                                    <a class="nav-item nav-link" id="pro-two-tab" data-toggle="tab" href="#pro-two" role="tab" aria-controls="pro-two" aria-selected="false">
-                                    <div class="product__nav-img w-img">
-                                        <img src="assets/img/shop/product/quick-view/quick-sm-2.jpg" alt="">
-                                    </div>
-                                    </a>
-                                    <a class="nav-item nav-link" id="pro-three-tab" data-toggle="tab" href="#pro-three" role="tab" aria-controls="pro-three" aria-selected="false">
-                                    <div class="product__nav-img w-img">
-                                        <img src="assets/img/shop/product/quick-view/quick-sm-3.jpg" alt="">
-                                    </div>
-                                    </a>
+                                    @endforeach
                                 </div>
                             </nav>
                         </div>
                         <div class="tab-content mb-20" id="product-detailsContent">
-                            <div class="tab-pane fade show active" id="pro-one" role="tabpanel" aria-labelledby="pro-one-tab">
+                            @foreach ($product_images as $i=>$x)
+                            <div class="tab-pane fade show {{$i==0 ? 'active' : ''}}" id="pro-{{$x->id}}" role="tabpanel" aria-labelledby="pro-{{$x->id}}-tab">
                                 <div class="product__modal-img product__thumb w-img">
-                                    <img src="assets/img/shop/product/details/details-big-1.jpg" alt="">
+                                    <img src="{{$x->image}}" alt="">
                                     <div class="product__sale ">
                                         <span class="new">new</span>
                                         <span class="percent">-16%</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="pro-two" role="tabpanel" aria-labelledby="pro-two-tab">
-                                <div class="product__modal-img product__thumb w-img">
-                                    <img src="assets/img/shop/product/details/details-big-2.jpg" alt="">
-                                    <div class="product__sale ">
-                                        <span class="new">new</span>
-                                        <span class="percent">-16%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="pro-three" role="tabpanel" aria-labelledby="pro-three-tab">
-                                <div class="product__modal-img product__thumb w-img">
-                                    <img src="assets/img/shop/product/details/details-big-3.jpg" alt="">
-                                    <div class="product__sale ">
-                                        <span class="new">new</span>
-                                        <span class="percent">-16%</span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -125,16 +101,6 @@
                             <span><a href="#">Gaming,</a></span>
                             <span><a href="#">PC Computers,</a></span>                                    
                             <span><a href="#">Ultrabooks</a></span>
-                        </div>
-                        <div class="product__share">
-                            <span>Share :</span>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>

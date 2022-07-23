@@ -20,7 +20,8 @@ class SliderFactory extends Factory
             'name' => $this->faker->name(),
             'description' => $this->faker->text(100),
             'image' => $this->faker->imageUrl(1920, 400),
-            'target_url' => 'https://fb.com'
+            'target_url' => 'https://fb.com',
+            'is_dark_text' => 0
         ];
     }
 }
