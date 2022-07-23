@@ -13,7 +13,7 @@ use App\Models\Permission;
 use App\Models\Permission_role;
 use App\Models\Product_image;
 use App\Models\Product_tag;
-use App\Models\Products;
+use App\Models\Product;
 use App\Models\Role;
 use App\Models\Tag;
 use App\Models\User;
@@ -37,10 +37,10 @@ class DatabaseSeeder extends Seeder
         Customer::factory(30)->create();
         Order::factory(30)->create();
         Order_item::factory(30)->create();
-        Category::factory(30)->create();
-        Products::factory(30)->create();
+        Category::factory(5)->create();
+        Product::factory(30)->create();
         Tag::factory(30)->create();
-        Product_tag::factory(30)->create();
+        Product_tag::factory(10)->create();
         Product_image::factory(30)->create();
         Menu_item::factory(30)->create();
     }

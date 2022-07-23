@@ -13,5 +13,7 @@ class Slider extends Model
         'name',
         'description',
         'image',
+        'target_url',
+        'is_dark_text'
     ];
 }
