@@ -316,8 +316,8 @@
                                     <div class="product__wrapper mb-60">
                                         <div class="product__thumb">
                                             <a href="product-details.html" class="w-img">
-                                                <img src="assets/img/shop/product/product-1.jpg" alt="product-img">
-                                                <img class="product__thumb-2" src="assets/img/shop/product/product-10.jpg" alt="product-img">
+                                                <img src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
+                                                <img class="product__thumb-2" src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
                                             </a>
                                             <div class="product__action transition-3">
                                                 <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
@@ -359,8 +359,8 @@
                                     <div class="col-xl-4 col-lg-4">
                                         <div class="product__thumb">
                                             <a href="product-details.html" class="w-img">
-                                                <img src="assets/img/shop/product/product-1.jpg" alt="product-img">
-                                                <img class="product__thumb-2" src="assets/img/shop/product/product-10.jpg" alt="product-img">
+                                                <img src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
+                                                <img class="product__thumb-2" src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
                                             </a>
                                             <div class="product__sale ">
                                                 <span class="new">new</span>
@@ -411,8 +411,8 @@
                                     <div class="col-xl-4 col-lg-4">
                                         <div class="product__thumb">
                                             <a href="product-details.html" class="w-img">
-                                                <img src="assets/img/shop/product/product-2.jpg" alt="product-img">
-                                                <img class="product__thumb-2" src="assets/img/shop/product/product-9.jpg" alt="product-img">
+                                                <img src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
+                                                <img class="product__thumb-2" src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
                                             </a>
                                             <div class="product__sale ">
                                                 <span class="new">new</span>
@@ -461,8 +461,8 @@
                                     <div class="col-xl-4 col-lg-4">
                                         <div class="product__thumb">
                                             <a href="product-details.html" class="w-img">
-                                                <img src="assets/img/shop/product/product-3.jpg" alt="product-img">
-                                                <img class="product__thumb-2" src="assets/img/shop/product/product-8.jpg" alt="product-img">
+                                                <img src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
+                                                <img class="product__thumb-2" src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
                                             </a>
                                             <div class="product__sale ">
                                                 <span class="new">new</span>
@@ -559,8 +559,8 @@
                                     <div class="col-xl-4 col-lg-4">
                                         <div class="product__thumb">
                                             <a href="product-details.html" class="w-img">
-                                                <img src="assets/img/shop/product/product-5.jpg" alt="product-img">
-                                                <img class="product__thumb-2" src="assets/img/shop/product/product-11.jpg" alt="product-img">
+                                                <img src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
+                                                <img class="product__thumb-2" src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
                                             </a>
                                             <div class="product__sale ">
                                                 <span class="new">new</span>

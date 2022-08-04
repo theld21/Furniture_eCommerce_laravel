@@ -55,46 +55,6 @@
                             </span>
                             <span class="review rating-left"><a href="#">Add your Review</a></span>
                         </div>
-                        <div class="product__modal-form mb-30">
-                            <form action="#">
-                                <div class="product__modal-input size mb-20">
-                                    <label>Size <i class="fas fa-star-of-life"></i></label>
-                                    <select>
-                                        <option>- Please select -</option>
-                                        <option> S</option>
-                                        <option> M</option>
-                                        <option> L</option>
-                                        <option> XL</option>
-                                        <option> XXL</option>
-                                    </select>
-                                </div>
-                                <div class="product__modal-input color mb-20">
-                                    <label>Color <i class="fas fa-star-of-life"></i></label>
-                                    <select>
-                                        <option>- Please select -</option>
-                                        <option> Black</option>
-                                        <option> Yellow</option>
-                                        <option> Blue</option>
-                                        <option> White</option>
-                                        <option> Ocean Blue</option>
-                                    </select>
-                                </div>
-                                <div class="product__modal-required mb-5">
-                                    <span>Repuired Fiields *</span>
-                                </div>
-                                <div class="pro-quan-area d-sm-flex align-items-center">
-                                    <div class="product-quantity-title">
-                                        <label>Quantity</label>
-                                    </div>
-                                    <div class="product-quantity mr-20 mb-20">
-                                        <div class="cart-plus-minus"><input type="text" value="1"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
-                                    </div>
-                                    <div class="pro-cart-btn">
-                                        <a href="#" class="add-cart-btn mb-20">+ Add to Cart</a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                         <div class="product__tag mb-25">
                             <span>Category:</span>
                             <span><a href="#">Accessories,</a></span>

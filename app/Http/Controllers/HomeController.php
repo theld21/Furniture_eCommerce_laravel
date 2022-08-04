@@ -11,11 +11,11 @@ class HomeController extends Controller
     public function index()
     {
         $slides = Slider::all();
-        $chairs = Product::select('id', 'name', 'price', 'old_price', 'feature_image')->where('category_id', '=', '3')->paginate(10);
-        $desks = Product::select('id', 'name', 'price', 'old_price', 'feature_image')->where('category_id', '=', '1')->paginate(10);
+        $featureProduct = Product::select('id', 'name', 'price', 'old_price', 'feature_image')->paginate(8);
+        $newProducts = Product::select('id', 'name', 'price', 'old_price', 'feature_image')->orderBy('id', 'desc')->paginate(12);
         return view('client.home', [
-            'chairs' => $chairs,
-            'desks' => $desks,
+            'newProducts' => $newProducts,
+            'featureProduct'=>$featureProduct,
             'slides' => $slides
         ]);
     }
