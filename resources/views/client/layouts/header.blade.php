@@ -13,11 +13,7 @@
                             <nav>
                                 <ul>
                                     <li><a href="{{ route('client.home') }}">Home</a></li>
-                                    <li class="active has-dropdown"><a href="{{ route('client.product.index') }}">Product</a>
-                                        <ul class="submenu transition-3">
-                                            <li><a href="{{ route('client.product.detail', ['product'=>3]) }}">Product Detail</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="{{ route('client.product.index') }}">products</a></li>
                                     <li><a href="{{ route('client.contact') }}">Contact</a></li>
                                 </ul>
                             </nav>

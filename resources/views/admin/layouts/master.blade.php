@@ -33,9 +33,9 @@
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
 
-        @include('layouts.header')
+        @include('admin.layouts.header')
 
-        @include('layouts.sidebar')
+        @include('admin.layouts.sidebar')
 
         <div class="page-wrapper">
 

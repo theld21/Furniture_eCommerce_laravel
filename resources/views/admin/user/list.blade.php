@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin/layouts.master')
 
 @section('title-content')
 <li class="breadcrumb-item active" aria-current="page">Users</li>

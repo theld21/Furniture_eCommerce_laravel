@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,21 +19,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [ProductManagementController::class, 'index'])->name('home');
+    
+    // Route::prefix('user')->name('user.')->group(function () {
+    //     Route::get('/', [UserController::class, 'index'])->name('list');
+    //     Route::get('add', [UserController::class, 'create'])->name('create');
+    //     Route::post('add', [UserController::class, 'store'])->name('store');
+    //     Route::get('edit/{id}', [UserController::class, 'edit'])->name('edit');
+    //     Route::put('edit/{id}', [UserController::class, 'update'])->name('update');
+    //     Route::delete('delete/{user}', [UserController::class, 'destroy'])->name('delete');
+    // });
+
+
+    Route::prefix('product')->name('product.')->group(function () {
+        Route::get('/', [ProductManagementController::class, 'index'])->name('list');
+        Route::get('add', [ProductManagementController::class, 'create'])->name('create');
+        Route::post('add', [ProductManagementController::class, 'store'])->name('store');
+        Route::get('edit/{id}', [ProductManagementController::class, 'edit'])->name('edit');
+        Route::put('edit/{id}', [ProductManagementController::class, 'update'])->name('update');
+        Route::delete('delete/{product}', [ProductManagementController::class, 'destroy'])->name('delete');
+        Route::put('changeStatus/{product}', [ProductManagementController::class, 'changeStatus'])->name('changeStatus');
+        Route::get('search', [ProductManagementController::class, 'search'])->name('search');
+    });
 });
-
-// Route::prefix('admin')->name('admin.')->group(function () {
-//     Route::prefix('user')->name('user.')->group(function () {
-//         Route::get('/', [UserController::class, 'index'])->name('list');
-//         Route::get('add', [UserController::class, 'create'])->name('create');
-//         Route::post('add', [UserController::class, 'store'])->name('store');
-//         Route::get('edit/{id}', [UserController::class, 'edit'])->name('edit');
-//         Route::put('edit/{id}', [UserController::class, 'update'])->name('update');
-//         Route::delete('delete/{user}', [UserController::class, 'destroy'])->name('delete');
-//     });
-// });
-
 
 
 Route::prefix('')->name('client.')->group(function () {

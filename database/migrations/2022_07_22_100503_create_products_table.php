@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
-            $table->integer('old_price');
+            $table->integer('old_price')->nullable();
             $table->string('feature_image');
             $table->text('content');
             $table->integer('user_id');

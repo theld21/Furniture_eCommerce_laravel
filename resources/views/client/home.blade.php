@@ -180,7 +180,7 @@
                 <div class="row">
 
                     @foreach($newProducts as $i=>$x)
-                    <div class="col-xl-2 col-lg-3 col-md-3 col sm-4 col-xs-6">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col sm-4 col-xs-6">
                         <div class="product__wrapper mb-60">
                             <div class="product__thumb">
                                 <a href="{{ route('client.product.detail', ['product'=>$x->id]) }}" class="w-img">
