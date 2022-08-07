@@ -14,9 +14,9 @@ class ProductController extends Controller
 
     public function detail(Product $product)
     {
+        $product->category;
         return view('client.productDetail', [
             'product' => $product,
-            'product_images' => $product->images,
         ]);
     }
 }

@@ -32,7 +32,7 @@
                             <img src="{{ $x->feature_image ? asset($x->feature_image) : ''}}" class="card-img-top" alt="">
                             <div class="card-body">
                                 <h5 class="card-title">{{$x->name}}</h5>
-                                <p class="card-text" style="color:red; font-weight: bold;">{{number_format($x->price, 0, 'vnd', '.')}} <sup>vnd</sup></p>
+                                <p class="card-text" style="color:red; font-weight: bold;">{{number_format($x->price, 0, 'vn<sup>đ</sup>', '.')}} <sup>vn<sup>đ</sup></sup></p>
                                 {{-- <div class="text-center"><a href="{{ route('admin.product.edit', ['id'=>$x->id]) }}" class="btn btn-primary">Edit</a></div> --}}
                                 <form action="{{ route('admin.product.delete', ['product'=>$x->id]) }}" method="POST">
                                     @csrf

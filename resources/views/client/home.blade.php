@@ -107,8 +107,8 @@
                                     <div class="product__content-inner">
                                         <h4><a href="{{ route('client.product.detail', ['product'=>1]) }}">{{$x->name}}</a></h4>
                                         <div class="product__price transition-3">
-                                            <span>{{$x->price}}</span>
-                                            <span class="old-price">{{$x->old_price}}</span>
+                                            <span>{{number_format($x->price, 0, 'vn<sup>đ</sup>', '.')}}<sup>đ</sup></span>
+                                            <span class="old-price">{{number_format($x->old_price, 0, 'vn<sup>đ</sup>', '.')}}<sup>đ</sup></span>
                                         </div>
                                     </div>
                                     <div class="add-cart p-absolute transition-3">
@@ -198,8 +198,8 @@
                                 <div class="product__content-inner">
                                     <h4><a href="{{ route('client.product.detail', ['product'=>1]) }}">{{$x->name}}</a></h4>
                                     <div class="product__price transition-3">
-                                        <span>{{$x->price}}</span>
-                                        <span class="old-price">{{$x->old_price}}</span>
+                                        <span>{{number_format($x->price, 0, 'vn<sup>đ</sup>', '.')}}<sup>đ</sup></span>
+                                        <span class="old-price">{{number_format($x->old_price, 0, 'vn<sup>đ</sup>', '.')}}<sup>đ</sup></span>
                                     </div>
                                 </div>
                                 <div class="add-cart p-absolute transition-3">

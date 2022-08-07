@@ -10,17 +10,17 @@
                         <div class="product__modal-nav mr-20">
                             <nav>
                                 <div class="nav nav-tabs" id="product-details" role="tablist">
-                                    @foreach ($product_images as $i=>$x)
+                                    {{-- @foreach ($product_images as $i=>$x)
                                     <a class="nav-item nav-link {{$i==0 ? 'active' : ''}}" id="pro-{{$x->id}}-tab" data-toggle="tab" href="#pro-{{$x->id}}" role="tab" aria-controls="pro-{{$x->id}}" aria-selected="true">
                                         <div class="product__nav-img w-img">
                                             <img src="{{$x->image}}" style="width:100px" alt="">
                                         </div>
                                     </a>
-                                    @endforeach
+                                    @endforeach --}}
                                 </div>
                             </nav>
                         </div>
-                        <div class="tab-content mb-20" id="product-detailsContent">
+                        {{-- <div class="tab-content mb-20" id="product-detailsContent">
                             @foreach ($product_images as $i=>$x)
                             <div class="tab-pane fade show {{$i==0 ? 'active' : ''}}" id="pro-{{$x->id}}" role="tabpanel" aria-labelledby="pro-{{$x->id}}-tab">
                                 <div class="product__modal-img product__thumb w-img">
@@ -32,6 +32,17 @@
                                 </div>
                             </div>
                             @endforeach
+                        </div> --}}
+                        <div class="tab-pane fade show active" id="pro-{{$product->id}}" role="tabpanel" aria-labelledby="pro-{{$product->id}}-tab">
+                            <div class="product__modal-img product__thumb w-img">
+                                <img src="{{asset($product->feature_image)}}" alt="">
+                                <div class="product__sale ">
+                                    <span class="new">new</span>
+                                    @if ($product->old_price/$product->price>0)
+                                        <span class="percent">-{{round($product->old_price/$product->price*100)}}%</span>‘
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,8 +50,8 @@
                     <div class="product__modal-content product__modal-content-2">
                         <h4><a href="product-details.html">{{ $product->name }}</a></h4>
                         <div class="product__price-2 mb-25">
-                            <span>$96.00</span>
-                            <span class="old-price">$96.00</span>
+                            <span>{{number_format($product->price, 0, 'vn<sup>đ</sup>', '.')}}<sup>đ</sup></span>
+                            <span class="old-price">{{number_format($product->old_price, 0, 'vn<sup>đ</sup>', '.')}}<sup>đ</sup></span>
                         </div>
                         <div class="rating rating-shop mb-15">
                             <ul>
@@ -57,10 +68,7 @@
                         </div>
                         <div class="product__tag mb-25">
                             <span>Category:</span>
-                            <span><a href="#">Accessories,</a></span>
-                            <span><a href="#">Gaming,</a></span>
-                            <span><a href="#">PC Computers,</a></span>                                    
-                            <span><a href="#">Ultrabooks</a></span>
+                            <span><a href="#">{{$product->Category->name}}</a></span>
                         </div>
                     </div>
                 </div>
@@ -76,7 +84,7 @@
                             <nav>
                                 <div class="nav nav-tabs justify-content-start justify-content-sm-center" id="pro-details" role="tablist">
                                     <a class="nav-item nav-link active" id="des-tab" data-toggle="tab" href="#des" role="tab" aria-controls="des" aria-selected="true">Description</a>
-                                    <a class="nav-item nav-link" id="add-tab" data-toggle="tab" href="#add" role="tab" aria-controls="add" aria-selected="false">Additional Information</a>
+                                    {{-- <a class="nav-item nav-link" id="add-tab" data-toggle="tab" href="#add" role="tab" aria-controls="add" aria-selected="false">Additional Information</a> --}}
                                     <a class="nav-item nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews (4)</a>
                                 </div>
                             </nav>
