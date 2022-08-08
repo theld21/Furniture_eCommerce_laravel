@@ -19,7 +19,10 @@ class OrderFactory extends Factory
         return [
             'user_id' => rand(1,9),
             'customer_id' => rand(1,9),
-            'status' => 'pending'
+            'status' => 'pending',
+            'address' => $this->faker->text(100),
+            'phone' => '0'. rand(100000000,999999999),
+            'note' => $this->faker->text(50),
         ];
     }
 }

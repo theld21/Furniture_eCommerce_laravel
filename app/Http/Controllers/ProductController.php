@@ -9,7 +9,10 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('client.productList');
+        $products = Product::select('id', 'name', 'price', 'old_price', 'feature_image')->orderby('id', 'desc')->paginate(16);
+        return view('client.productList', [
+            'products' => $products
+        ]);
     }
 
     public function detail(Product $product)

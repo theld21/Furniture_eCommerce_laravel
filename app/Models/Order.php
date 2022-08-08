@@ -13,5 +13,19 @@ class Order extends Model
         'user_id',
         'customer_id',
         'status',
+        'address',
+        'phone',
+        'note'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Order_item::class);
+    }
+
 }

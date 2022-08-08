@@ -19,7 +19,8 @@ class Order_itemFactory extends Factory
         return [
             'order_id' => rand(1,9),
             'product_id' => rand(1,9),
-            'quantity' => rand(1,9)
+            'quantity' => rand(1,9),
+            'price' => rand(100000,6000000),
         ];
     }
 }

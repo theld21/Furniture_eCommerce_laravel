@@ -29,25 +29,23 @@
                 @foreach ($products as $x)
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="card" style="width: 18rem;">
-                            <img src="{{ $x->feature_image ? asset($x->feature_image) : ''}}" class="card-img-top" alt="">
+                            <a href="{{ route('admin.product.edit', ['product'=>$x->id]) }}"><img src="{{ $x->feature_image ? asset($x->feature_image) : ''}}" class="card-img-top" alt=""></a>
                             <div class="card-body">
-                                <h5 class="card-title">{{$x->name}}</h5>
+                                <h5 class="card-title"><a href="{{ route('admin.product.edit', ['product'=>$x->id]) }}">{{$x->name}}</a></h5>
                                 <p class="card-text" style="color:red; font-weight: bold;">{{number_format($x->price, 0, 'vn<sup>đ</sup>', '.')}} <sup>vn<sup>đ</sup></sup></p>
-                                {{-- <div class="text-center"><a href="{{ route('admin.product.edit', ['id'=>$x->id]) }}" class="btn btn-primary">Edit</a></div> --}}
+                                
+                                <form action="{{ route('admin.product.changeStatus', ['product'=>$x->id]) }}" method="POST" class="d-flex">
+                                    @csrf
+                                    @method('PUT')
+                                    <button class="btn btn-{{$x->status==1? 'success' : 'dark'}} text-light float-center m-r-10" type="submit">{{$x->status==1? 'Showing' : 'Hiding'}}</button>
+                                    <div class="text-center"><a href="{{ route('admin.product.edit', ['product'=>$x->id]) }}" class="btn btn-primary"><i class="mdi mdi-lead-pencil"></i></a></div>
+                                </form>
+
                                 <form action="{{ route('admin.product.delete', ['product'=>$x->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger text-light float-center" type="submit">Delete</button>
                                 </form>
-                                {{-- <form action="{{ route('admin.product.changeStatus', ['product'=>$x->id]) }}" method="POST">
-                                    @csrf
-                                    @method('PUT')
-                                    @if ($x->status)
-                                        <button class="btn btn-success text-light float-center" type="submit">Hiện</button>
-                                    @else
-                                        <button class="btn btn-dark text-light float-center" type="submit">Ẩn</button>
-                                    @endif
-                                </form> --}}
                             </div>
                         </div>
                     </div>

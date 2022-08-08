@@ -38,9 +38,9 @@
                                                 <hr>
                                             </div>
                                             <ul>
-                                                <li><a href="#">My Account</a></li>
-                                                <li><a href="{{ route('client.login') }}">Login</a></li>
-                                                <li><a href="{{ route('client.signup') }}">Sign Up</a></li>
+                                                <li><a href="{{ route('admin.product.list', []) }}">Dashboard</a></li>
+                                                <li><a href="{{ route('auth.getLogin') }}">Login</a></li>
+                                                <li><a href="{{ route('auth.logout') }}">Logout</a></li>
                                             </ul>
                                         </div>
                                     </li>

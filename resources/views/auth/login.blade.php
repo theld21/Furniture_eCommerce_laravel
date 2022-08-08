@@ -3,6 +3,15 @@
 @section('client-content')
 <section class="login-area pt-50 pb-100" >
     <div class="container">
+        <div>
+            @if($errors->any())
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="basic-login" id="loginForm">>
@@ -22,16 +31,15 @@
                 </div>
                 <div class="basic-login" id="signUpForm">
                     <h3 class="text-center mb-60">Login From Here</h3>
-                    <form action="#">
-                        <label for="name">Email Address <span>**</span></label>
-                        <input id="name" type="text" placeholder="Email address...">
-                        <label for="pass">Password <span>**</span></label>
-                        <input id="pass" type="password" placeholder="Enter password...">
+                    <form action="{{route('auth.postLogin')}}" method="POST">
+                        @csrf
+                        <label for="name">Email Address <span>*</span></label>
+                        <input id="name" name="email" type="email" placeholder="Email address...">
+
+                        <label for="pass">Password <span>*</span></label>
+                        <input id="pass" name="password" type="password" placeholder="Enter password...">
+
                         <div class="login-action mb-20 fix">
-                            <span class="log-rem f-left">
-                                <input id="remember" type="checkbox">
-                                <label for="remember">Remember me!</label>
-                            </span>
                             <span class="forgot-login f-right">
                                 <a href="#">Lost your password?</a>
                             </span>

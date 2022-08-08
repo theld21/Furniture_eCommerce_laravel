@@ -67,9 +67,15 @@
                             <span class="review rating-left"><a href="#">Add your Review</a></span>
                         </div>
                         <div class="product__tag mb-25">
-                            <span>Category:</span>
-                            <span><a href="#">{{$product->Category->name}}</a></span>
+                            {{-- <span>Category:</span> --}}
+                            {{-- <span><a href="#">{{$product->Category->name}}</a></span> --}}
                         </div>
+
+                        <form action="{{ route('client.addToCart', []) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$product->id}}">
+                            <button class="btn btn-danger text-light" type="submit">Add To Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -45,14 +45,20 @@
                             <td>{{$x->student_code}}</td>
                             <td>{{$x->email}}</td>
                             <td>
-                                @if ($x->status == 1)
-                                    <label class="badge bg-success">Active</label>
-                                @else
-                                    <label class="badge bg-danger">Inactive</label>
-                                @endif
+                                <form action="{{ route('admin.user.changeStatus', ['user'=>$x->id]) }}" method="POST" class="d-flex">
+                                    @csrf
+                                    @method('PUT')
+
+                                    <button class="badge bg-{{$x->status==1? 'success' : 'danger'}}">{{$x->status==1? 'active' : 'inactive'}}</button>
+                                </form>
                             </td>
                             <td>
-                                <a href="{{ route('admin.user.edit', ['id'=>$x->id]) }}" class="btn btn-primary text-white float-end"><i class="mdi mdi-border-color"></i></a>
+                                <a href="{{ route('admin.user.edit', ['user'=>$x->id]) }}" class="btn btn-primary text-white float-end"><i class="mdi mdi-border-color"></i></a>
+                                <form action="{{ route('admin.user.delete', ['user'=>$x->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger text-light float-center" type="submit">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

@@ -10,7 +10,7 @@ class ProductManagementController extends Controller
 {
     public function index()
     {
-        $products = Product::select('id', 'name', 'price', 'old_price', 'feature_image')->orderby('id', 'desc')->paginate(16);
+        $products = Product::select('id', 'name', 'price', 'old_price', 'feature_image', 'status')->orderby('id', 'desc')->paginate(16);
         return view('admin.product.list', [
             'products'=>$products
         ]);
@@ -19,14 +19,13 @@ class ProductManagementController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.product.create',[
+        return view('admin.product.form',[
             'categories'=>$categories
         ]);
     }
 
     public function store(Request $request)
     {
-        // dd($request);
         $validatedData = $request->validate([
             'name' => 'required',
             'price' => 'required|min:0',
@@ -53,12 +52,13 @@ class ProductManagementController extends Controller
         return back()->with('success', 'Product created successfully.');
     }
 
-    public function edit($id)
+    public function edit(Product $product)
     {
-        $product = Product::find($id);
+        $categories = Category::all();
 
-        return view('admin.product.edit', [
-            'product' => $product
+        return view('admin.product.form', [
+            'product' => $product,
+            'categories' => $categories
         ]);
     }
 
@@ -67,22 +67,22 @@ class ProductManagementController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'price' => 'required|min:0',
-            'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ], [
-            'name.required' => 'Name field is required.',
-            'price.required' => 'Price field is required.',
+            'old_price' => 'required|min:0',
+            'feature_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'category_id' => 'required|integer',
+            'status' => 'required|integer',
         ]);
 
-        if ($request->hasFile('thumbnail_url')) {
-            $thumbnail_url = $request->thumbnail_url;
-            $imageName = $thumbnail_url->hashName();
-            $imageName = $request->username . '_' . $imageName;
-            $validatedData['avatar'] = $thumbnail_url->storeAs('images/users', $imageName);
+        if ($request->hasFile('feature_image')) {
+            $feature_image = $request->feature_image;
+            $imageName = $feature_image->hashName();
+            $validatedData['feature_image'] = $feature_image->storeAs('images/products', $imageName);
+            $validatedData['feature_image'] = 'images/products/'.$imageName;
         } else {
-            unset($validatedData['avatar']);
+            unset($validatedData['feature_image']);
         }
 
-        Product::find($request->id)->update($validatedData);
+        Product::find($request->product)->update($validatedData);
         
         return back()->with('success', 'Product updated successfully.');
     }
@@ -99,10 +99,10 @@ class ProductManagementController extends Controller
     {
         if (!$product) return back();
         $product->update([
-            'status' => !$product->status
+            'status' => $product->status == 0 ? 1 : 0
         ]);
 
-        return redirect()->route("admin.product.list");
+        return redirect()->back();
     }
 
     public function search(Request $request)

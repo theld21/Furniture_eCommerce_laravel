@@ -226,59 +226,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sidebar__widget">
-                        <div class="sidebar__widget-title mb-30">
-                            <h3>Featured Products</h3>
-                        </div>
-                        <div class="sidebar__widget-content">
-                            <div class="features__product">
-                                <ul>
-                                    <li class="mb-20">
-                                        <div class="featires__product-wrapper d-flex">
-                                            <div class="features__product-thumb mr-15">
-                                                <a href="product-details.html"><img src="assets/img/shop/product/sm/pro-sm-1.jpg" alt="pro-sm-1"></a>
-                                            </div>
-                                            <div class="features__product-content">
-                                                <h5><a href="product-details.html">Wooden container Bowl</a></h5>
-                                                <div class="price">
-                                                    <span>$98</span>
-                                                    <span class="price-old">$128</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-20">
-                                        <div class="featires__product-wrapper d-flex">
-                                            <div class="features__product-thumb mr-15">
-                                                <a href="product-details.html"><img src="assets/img/shop/product/sm/pro-sm-2.jpg" alt="pro-sm-2"></a>
-                                            </div>
-                                            <div class="features__product-content">
-                                                <h5><a href="product-details.html">Wooden container Bowl</a></h5>
-                                                <div class="price">
-                                                    <span>$98</span>
-                                                    <span class="price-old">$128</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="mb-20">
-                                        <div class="featires__product-wrapper d-flex">
-                                            <div class="features__product-thumb mr-15">
-                                                <a href="product-details.html"><img src="assets/img/shop/product/sm/pro-sm-3.jpg" alt="pro-sm-3"></a>
-                                            </div>
-                                            <div class="features__product-content">
-                                                <h5><a href="product-details.html">Wooden container Bowl</a></h5>
-                                                <div class="price">
-                                                    <span>$98</span>
-                                                    <span class="price-old">$128</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-xl-9 col-lg-9 col-md-8">
@@ -312,45 +259,36 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-grid" role="tabpanel" aria-labelledby="pills-grid-tab">
                             <div class="row custom-row-10">
-                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 custom-col-10">
-                                    <div class="product__wrapper mb-60">
-                                        <div class="product__thumb">
-                                            <a href="product-details.html" class="w-img">
-                                                <img src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
-                                                <img class="product__thumb-2" src="{{asset('img/shop/product/product-5.jpg')}}" alt="product-img">
-                                            </a>
-                                            <div class="product__action transition-3">
-                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                    <i class="fal fa-heart"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Compare">
-                                                    <i class="fal fa-sliders-h"></i>
-                                                </a>
-                                                <!-- Button trigger modal -->
-                                                <a href="#" data-toggle="modal" data-target="#productModalId">
-                                                    <i class="fal fa-search"></i>
-                                                </a>
+                                @foreach($products as $i=>$x)
+                        <div class="col-xl-3 col-lg-3 col-md-4 col sm-6 col-xs-12">
+                            <div class="product__wrapper mb-60">
+                                <div class="product__thumb">
+                                    <a href="{{ route('client.product.detail', ['product'=>$x->id]) }}" class="w-img">
+                                        <img src="{{asset($x->feature_image)}}" alt="product-img">
+                                        <img class="product__thumb-2" src="{{asset($x->feature_image)}}" alt="product-img">
+                                    </a>
+                                    <div class="product__action transition-3">
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
+                                            <i class="fal fa-heart"></i>
+                                        </a>
 
-                                            </div>
-                                            <div class="product__sale">
-                                                <span class="new">new</span>
-                                                <span class="percent">-16%</span>
-                                            </div>
-                                        </div>
-                                        <div class="product__content p-relative">
-                                            <div class="product__content-inner">
-                                                <h4><a href="product-details.html">Wooden container Bowl</a></h4>
-                                                <div class="product__price transition-3">
-                                                    <span>$96.00</span>
-                                                    <span class="old-price">$96.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="add-cart p-absolute transition-3">
-                                                <a href="#">+ Add to Cart</a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
+                                <div class="product__content p-relative">
+                                    <div class="product__content-inner">
+                                        <h4><a href="{{ route('client.product.detail', ['product'=>1]) }}">{{$x->name}}</a></h4>
+                                        <div class="product__price transition-3">
+                                            <span>{{number_format($x->price, 0, 'vn<sup>đ</sup>', '.')}}<sup>đ</sup></span>
+                                            <span class="old-price">{{number_format($x->old_price, 0, 'vn<sup>đ</sup>', '.')}}<sup>đ</sup></span>
+                                        </div>
+                                    </div>
+                                    <div class="add-cart p-absolute transition-3">
+                                        <a href="#">+ Add to Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-list" role="tabpanel" aria-labelledby="pills-list-tab">
